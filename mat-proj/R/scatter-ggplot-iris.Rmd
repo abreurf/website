@@ -5,6 +5,7 @@ output:
     smart: no
     theme: cosmo
     df_print: default
+    self_contained: no
   pdf_document: default
 pkgdown:
   as_is: yes
