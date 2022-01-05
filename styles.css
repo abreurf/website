@@ -1,0 +1,357 @@
+@charset "UTF-8";
+
+/*Carregar a fonte utilizada no site */
+@font-face {
+    font-family: Quicksand;
+    src: url(fonts/Quicksand-Light.ttf);
+}
+
+
+
+
+
+html {
+    box-sizing: border-box;    
+    max-width: 1400px;
+   font-family: "Quicksand",Arial, Helvetica, sans-serif; 
+   margin: auto;
+   height: 100%;
+   min-height: 100vh;
+   padding: 0;
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+body {
+    max-width: 1400px;
+    font-family: "Quicksand",Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    height: 100%;
+   min-height: 100vh;
+   padding: 0;
+   margin: auto;
+    
+}
+
+/* Estilo para a classe container, em que header, main e footer estão inseridos */
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+ }
+
+
+/* Estilo para o main*/
+main {
+    flex: 1;
+}
+
+/* Estilo para o footer*/
+footer {
+    background-color: rgb(4, 41, 133);
+    padding: 10px 30px;
+    color: white;
+    text-align: center;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    margin-top: 100px;   
+    
+}
+
+header {
+    text-align: center;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+
+#logo-header {
+    padding-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding-left: 0;
+    
+}
+
+.nav {
+    max-width: 1400px;
+    
+    color: white;
+    font-size: large;
+    background-color: rgb(0,0,138);
+    border-radius: 5px;
+
+    
+}
+.nav a {
+    display: block;
+    padding: 0px 12px;
+    line-height: inherit;
+    cursor: pointer;
+
+}
+.nav__menu {
+    line-height: 45px;
+    font-weight: 700;
+}
+.nav__menu-item {
+    display: inline-block;
+    position: relative;
+}
+.nav__menu-item:hover {
+    background-color: #ffffff;
+    color: rgb(226, 30, 81);
+    border-radius: 3px; 
+}
+
+.nav__menu-item:hover .nav__submenu {
+    display: block;
+}
+.nav__submenu {
+    font-weight: 300;
+    text-transform: none;
+    display: none;
+    position: absolute;
+    width: 220px;
+    background-color:white;
+    color: rgb(226, 30, 81);
+    font-size: large;
+    border-width: 1px;
+    border-style: solid;
+    font-weight: 700;
+    border-color: rgb(226, 30, 81);
+    border-radius: 5px;
+}
+
+.nav__submenu-item:hover {
+    background: rgb(226, 30, 81);
+    color: white;
+    font-size: large;
+    font-weight: 700;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(226, 30, 81);
+}
+
+.title-page {
+    color: white;
+    border-radius: 5px;
+    background-color: #4646EA;  
+    text-align: center;
+    padding: 0;
+}
+
+.title-page h2 {
+    margin: 0px;
+}
+
+.publicacao {
+    padding-left: 100px;
+    align-items: center;
+    display: flex;
+    margin: auto;
+    
+}
+
+.publicacao a {
+    padding-left: 20px;
+    color: #000000;
+    text-decoration: none;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: large;
+    font-weight: 600;    
+}
+
+.publicacao a:hover{
+    color: rgb(226, 30, 81);
+}
+
+main h2{
+    padding-left: 20px;
+}
+
+.public-background {
+    background-color: #76b1d33a;
+    border-radius: 5px;
+
+}
+
+
+a:link, a:hover, a:active, a:visited{
+    text-decoration: none;
+}
+
+
+
+
+.banner {
+    padding: 50px 100px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.banner .content {
+    max-width: 1000px;
+    font-size: large;
+
+}
+
+.banner .content h2 {
+    font-family:"Quicksand",Arial, Helvetica, sans-serif;
+    font-size: 3em;
+    color: rgb(4, 0, 55);
+    padding: 20px;
+}
+
+.banner .content p {
+    font-size: 1em;
+    color: rgb(102, 105, 194);
+    text-align: justify;
+    margin: 20px;
+    font-family:"Quicksand",Arial, Helvetica, sans-serif;
+}
+
+.banner .content ul li{
+    margin: 20px;
+    font-weight: bold;
+    
+}
+
+.banner .content ul li a{
+            color:rgb(0, 0, 138);
+            font-weight: large;
+            font-family:"Quicksand",Arial, Helvetica, sans-serif;
+}
+
+.banner .content ul li a:hover{
+        color:rgb(226, 30, 81);
+}
+
+
+@media (max-width:1000px){
+ 
+
+    .banner{
+        padding: 50px 20px 50px;
+        flex-direction: column-reverse;
+        font-family:"Quicksand",Arial, Helvetica, sans-serif;
+    }
+
+    .banner .image{
+        min-width: 20%;
+        max-width: 80%;
+        margin-left: 5px;
+    }
+
+    .banner .content h2 {
+        font-size: 2em;
+    }
+
+    
+}
+
+a, a:visited, a:hover, a:active {
+    color: inherit;
+}
+
+.extlink {
+    list-style-image: url('images/ext-link-img.png')
+}
+
+.column {
+    float:left;
+    width: 20%;
+    min-width: 20%;
+    padding-top:100px;
+    text-align: center;
+    font-size: 1.5em;
+   margin: auto;
+}
+  
+
+.column > figcaption {
+    color: rgb(13, 13, 94);
+    margin: 10px;
+    font-family:"Quicksand",Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    
+
+}
+  /* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display:table;
+    margin: auto;
+
+}
+  
+@media screen and (max-width: 620px) {
+    .column {
+      width: 100%;
+      padding-top: 20px;
+    }
+
+   
+}
+
+.logo-image {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.card {
+    background-color: rgba(207, 208, 211, 0.411);
+    color: rgb(7, 41, 133);
+    padding: 1rem;
+    height: 15rem;
+    align-items: center; 
+    border-radius: 5%;
+    border-style: solid;
+   border-width: thin;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-color: white;
+  
+}
+
+
+
+.cards {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+}
+
+
+.cards a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.card:hover{
+    color:rgba(226, 30, 82, 0.932);
+    border-color:rgb(226, 30, 81);
+}
+
+@media (min-width: 400px) {
+    .cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+.logos-R{
+    margin: auto;
+    width: 300px;
+    display: flex;
+    border-style: solid;
+    border-width: thin;
+    border-color: rgba(102, 102, 170, 0.342);;
+}

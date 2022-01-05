@@ -1,0 +1,49 @@
+---
+output:
+  
+  html_document: 
+    smart: no
+    theme: cosmo
+    df_print: default
+  pdf_document: default
+pkgdown:
+  as_is: yes
+editor_options:
+  chunk_output_type: console
+---
+<style type="text/css">
+.main-container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 13pt;
+}
+</style>
+
+
+Vamos usar para esse exemplo o conjunto de dados iris, que está disponível no R e também pode ser obtido pelo site da UCI Machine Learning Repository, no link <a href = "https://archive.ics.uci.edu/ml/datasets/Iris" target="_blank">https://archive.ics.uci.edu/ml/datasets/Iris </a>.
+
+Vamos carregar o conjunto de dados e exibir as primeiras observações:
+
+```{r}
+data("iris")
+head(iris)
+```
+
+As informações que serão utilizadas são `Petal.Length` (comprimento de pétala), `Petal.Width` (largura de pétala) e `Species` (espécie). Vamos agora carregar o pacote `ggplot2` e contruir o gráfico:
+
+```{r, message=FALSE, fig.align='center',fig.dim=c(8,4)}
+library("ggplot2")
+
+ggplot(iris, # especifica o conjunto de dados
+       aes(x = Petal.Length, y = Petal.Width)) + # determina as variáveis para os eixos x e y
+       geom_point(aes(colour=Species)) + # cria os pontos atribuindo uma cor para cada espécie
+         labs(title="Iris", # título do gráfico
+              x = "Comprimento da Pétala", # rótulo do eixo x
+              y = "Largura da Pétala", # rótulo do eixo x
+              colour = "Espécie" # título da legenda
+              )
+
+```
+
+A função `aes()` é utilizada para descrever como as variáveis serão mapeadas nas propriedades visuais da forma geométrica escolhida. Ela pode ser definida em `ggplot()` e em camadas individuais, como `geom_point()`, `geom_line()`, etc.
