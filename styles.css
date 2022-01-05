@@ -13,6 +13,7 @@
 html {
     box-sizing: border-box;    
     max-width: 1400px;
+    min-width: 400px;
    font-family: "Quicksand",Arial, Helvetica, sans-serif; 
    margin: auto;
    height: 100%;
@@ -32,6 +33,7 @@ body {
    min-height: 100vh;
    padding: 0;
    margin: auto;
+   min-width: 400px;
     
 }
 
@@ -64,6 +66,7 @@ header {
     text-align: center;
     padding-bottom: 10px;
     width: 100%;
+    min-width: 400px;
 }
 
 
@@ -82,7 +85,7 @@ nav ul {
     max-width: 1400px;
     
     color: white;
-    font-size: large;
+    font-size: normal;
     background-color: rgb(0,0,138);
     border-radius: 5px;
 
@@ -90,7 +93,7 @@ nav ul {
 }
 .nav a {
     display: block;
-    padding: 0px 10px;
+    padding: 0px 5px;
     line-height: inherit;
     cursor: pointer;
 
