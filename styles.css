@@ -335,6 +335,7 @@ a, a:visited, a:hover, a:active {
     margin: 0 auto;
     display: grid;
     grid-gap: 1rem;
+    padding-top: 50px;
 }
 
 
