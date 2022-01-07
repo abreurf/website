@@ -320,7 +320,7 @@ a, a:visited, a:hover, a:active {
     align-items: center; 
     border-radius: 5%;
     border-style: solid;
-   border-width: thin;
+    border-width: thin;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -331,7 +331,7 @@ a, a:visited, a:hover, a:active {
 
 
 .cards {
-    max-width: 1400px;
+    max-width: 900px;
     margin: 0 auto;
     display: grid;
     grid-gap: 1rem;
@@ -343,13 +343,14 @@ a, a:visited, a:hover, a:active {
     font-weight: bold;
 }
 
+
 .card:hover{
     color:rgba(226, 30, 82, 0.932);
     border-color:rgb(226, 30, 81);
 }
 
-@media (min-width: 400px) {
-    .cards { grid-template-columns: repeat(3, 1fr); }
+@media (min-width: 800px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
 }
 
 .logos-R{
