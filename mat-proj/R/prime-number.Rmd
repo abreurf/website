@@ -1,0 +1,185 @@
+---
+output:
+  
+  html_document: 
+    smart: no
+    theme: cosmo
+    df_print: default
+  pdf_document: default
+pkgdown:
+  as_is: yes
+editor_options:
+  chunk_output_type: console
+---
+<style type="text/css">
+.main-container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 13pt;
+}
+  
+.hljs {
+font-size: 11pt;
+}
+
+h2 {
+font-weight: bold;
+}
+</style>
+
+
+Vamos construir aqui uma função em `R`, que recebe como argumento um número inteiro positivo, e informa se esse é um número primo ou não.
+
+No problema em questão espera-se que o usuário irá entrar com o valor corretamente,  e caso não o faça a função retorna uma mensagem dizendo que o valor introduzido não é valido e encerra. Não será feita nenhuma estrutura que continue pedindo o valor até que o usuário o faça corretamente.
+
+
+Vamos definir então a função `primo(n_int)` em que `n_int` é um número inteiro maior que 1:
+
+
+```{r}
+primo <- function(n_int) {
+  # n_int: um número inteiro maior que 1
+}
+
+```
+
+Vamos agora introduzir uma condicional `if (condição) { ... } else { ... } ` para verificar se o número digitado está no formato correto, ou imprimir a mensagem de erro:
+
+
+```{r}
+primo <- function(n_int) {
+  # n_int: um número inteiro maior que 1
+  
+  if (n_int == round(n_int) & n_int > 1) {
+    
+    #---------------------------------------------------#
+    #                                                   #
+    # Bloco de comandos caso a condição seja verdadeira #
+    #                                                   #
+    #---------------------------------------------------#
+    
+  } else {
+    print("Você não digitou um número valido!")
+  }
+}
+
+```
+
+Dentro da condicional `if` foi colocado `n_int == round(n_int) & n_int > 1`. A segunda parte `n_int > 1` verifica apenas se o número é maior que 1, e a primeira parte `n_int == round(n_int)` quer verficar se o número digitado é igual a ele mesmo arredondado, e isso será verdadeiro se o número for inteiro. Vejamos um exemplo:
+
+```{r}
+5 == round(5)
+
+-3 == round(-3)
+
+4.2 == round (4.2)
+```
+
+
+Da lógica matemática temos que se duas proposições são verdadeiras, a conjunção "e" (simbolicamente $\wedge$) é verdadeira, e se pelo menos uma é falsa, a conjunção é falsa. Assim se as duas partes da condicional forem verdadeiras, isso significará que o número digitado está na forma correta. No `R` a conjunção é representada por `&`.
+
+Seguindo então, no bloco de comandos caso a condição seja verdadeira, a verficação de que o número é primo ou não, será feita a partir do resto da divisão desse número por todos os números menores que ele. Se ocorrer o resto igual a zero em alguma divisão, significa que ele não é um número primo.
+ 
+Vamos então criar um valor `k = n_int - 1`, que iterativamente vá diminuindo em 1 unidade e em cada passo seja verificado o resto da divisão de $n\_int$ por $k$ (`n_int %% k `).
+
+
+Com isso a iteração será feita até que se obtenha $k = 1$, ou seja, enquanto $k$ for diferente de 1 a verificação é executada. Para tal tarefa será feito uso do comando `while`:
+
+```{r}
+primo <- function(n_int) {
+  # n_int: um número inteiro maior que 1
+  
+  if (n_int == round(n_int) & n_int > 1 ) {
+  #---------------------------------------------------#
+    k = n_int - 1
+    
+    while (k != 1) {
+      if (n_int %% k == 0) {
+        print(paste("O número", n_int, "não é primo."))
+        break
+        
+        } else {
+          
+          k <- k - 1
+          if (k == 1) {
+            print(paste("O número", n_int, "é primo."))
+          }
+        }
+    }
+  #---------------------------------------------------#
+  } else {
+      print("Você não digitou um número valido!")
+  }
+}
+
+```
+Agora que a função está pronta vamos executa-lá para alguns valores:
+
+```{r}
+primo(10); primo(20); primo(17); primo(7917); primo(524281); primo(524287)
+
+primo(0);primo(2.5)
+```
+## Incluindo os divisores
+
+Uma forma de incrementar essa função é retornando os divisores de $n\_int$, quando ele não for um número primo. Vamos criar uma nova função chamada `primo.div`, com o mesmo conteúdo da anterior alterando apenas o primeiro `if` dentro do `while`.  Ao invés de termos apenas a instrução 
+```{r, eval=FALSE}
+    print(paste("O número", n_int, "não é primo."))
+```
+
+vamos introduzir 
+```{r, eval=FALSE}
+    divisores <- c()
+    for (i in 1:n_int) {
+      if (n_int %% i == 0) {
+        divisores <- c(divisores,i)
+      }
+    }
+        
+    print(paste("O número", n_int, "não é primo e seus divisores são: "))
+    print(divisores)
+```
+
+Esse bloco de comandos registra todos os valores cujo resto da divisão não foi zero, ou seja, os divisores do número. A função completa então é:
+
+```{r}
+primo.div <- function(n_int) {
+  # n_int: um número inteiro maior que 1
+  
+  if (n_int == round(n_int) & n_int > 1 ) {
+  #---------------------------------------------------#
+    k = n_int - 1
+    
+    while (k != 1) {
+      if (n_int %% k == 0) {
+            divisores <- c()
+            for (i in 1:n_int) {
+              if (n_int %% i == 0) {
+                divisores <- c(divisores,i)
+              }
+            }
+                
+      print(paste("O número", n_int, "não é primo e seus divisores são: "))
+      print(divisores)
+      break
+        
+        } else {
+          
+          k <- k - 1
+          if (k == 1) {
+            print(paste("O número", n_int, "é primo."))
+          }
+        }
+    }
+  #---------------------------------------------------#
+  } else {
+      print("Você não digitou um número valido!")
+  }
+}
+```
+
+Vamos verificar novamente os valores usados na função anterior:
+
+```{r}
+primo.div(10); primo.div(20); primo.div(17); primo.div(7917); primo.div(524281); primo.div(524287)
