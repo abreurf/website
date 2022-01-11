@@ -357,6 +357,7 @@ a, a:visited, a:hover, a:active {
 .logos-R{
     margin: auto;
     width: 300px;
+    height: 150px;
     display: flex;
     border-style: solid;
     border-width: thin;
