@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estatística</title>
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="shortcut icon" href="../../../images/fav-lis.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div id="logo-header">
+                <img src="../../../images/logo-p.png" alt="logo">
+            </div>
+            <nav class="nav">
+              <ul class="nav__menu">
+                <li class="nav__menu-item"><a href="../../../index.html">Home</a></li>
+                <li class="nav__menu-item">&nbsp; Materiais e Projetos &nbsp;
+                  <ul class="nav__submenu">
+                    <li class="nav__submenu-item"> <a href="../../../mat-proj/R-proj.html">R</a></li>
+                    <li class="nav__submenu-item"> <a href="../../../mat-proj/Python-proj.html"> Python</a></li>
+                    <li class="nav__submenu-item"> <a href="../../../mat-proj/PowerBI-proj.html">Power BI</a></li>
+                    <li class="nav__submenu-item"> <a href="../../../mat-proj/math.html">Matemática</a></li>
+                    <li class="nav__submenu-item"> <a href="../../../mat-proj/estatistica.html">Estatística</a></li>
+                    <li class="nav__submenu-item"> <a href="../../../mat-proj/public-proj.html">Publicações</a></li>
+                  </ul>
+                </li>
+                <li class="nav__menu-item"><a href="../../../links.html">Links úteis</a></li>
+                <li class="nav__menu-item"><a href="../../../contato.html">Contato</a></li>
+              </ul>
+            </nav>
+           </header>
+        
+           <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+           </script>
+
+           <main style="font-weight:bold; text-align: justify;" >
+               <div class="title-page">
+                   <h2>Estatística
+                   </h2>
+               </div>
+
+
+               <h1 style="text-align: center;"> Distribuição Bernoulli</h1>
+
+               <p  >Uma variável aleatória \(X\) tem distribuição Bernoulli, quando resulta de um experimento em que há apenas dois resultados possíveis, em geral denotados por \(0\) e \(1\), sendo que \(1\) indica a ocorrência do evento de interesse, e \(0\) caso contrário. </p>
+
+               <p > Seja \( \theta\) a probabilidade do evento de interesse ocorrer \( (0 < \theta < 1) \), isto é, \( P(X=1) = \theta\), e \(1-\theta\) a probabilidade da não ocorrência do evento de interesse, ou seja, \(P(0) = 1- \theta\).</p> 
+               
+               <h2>Função de Probabilidade</h2>
+
+               <p > Digamos que  \(\Omega\) seja o espaço amostral e \(A \subset \Omega\) o evento de interesse. A sua não ocorrência é então dada por \(A^c\), de modo que temos \(P(A) = P(X=1) = \theta\) e \(P(A^c) = P(X=0) = 1-\theta\). </p>
+
+
+                <p>Assim, a função de probabilidade é dada por </p>
+
+                \[
+                p_X(x) = P(X=x) = \begin{cases}
+                \theta^x(1-\theta)^{1-x}, ~~~~ \text{ se } x \in \{0,1\}\\
+                0 ~~~~~~~~~~~~~~~~~~~~ \text{ caso contrário}
+                \end{cases}
+                \]
+
+                <p> e denota-se \(X \sim Bernoulli(\theta)\) para indicar, que uma variável aleatória \(X\) segue (possui) distribuição Bernoulli com parâmetro \(\theta\). É comum também representar \(\theta\) por \(p\) e \(1-\theta\) por \(q\), de modo que \( p+q = 1\).</p>
+
+                <p> Podemos representar graficamente a função de probabilidade da distribuição Bernoulli como </p>
+
+                <p style="text-align: center;"><img src="Bernoulli_distrib.svg" alt="Bernoulli_Px" width="350px"></p>
+
+
+<p> Para mostrar que \(p_X(x)\) apresentada acima é uma função de probabilidade, basta mostrar que \( \sum_{x\in \mathbb{R}}P(X=x) = 1\). Vejamos: </p>
+
+\[
+\begin{array}{rcl}
+	\sum_{x\in \mathbb{R}}P(X=x) & = & P(X=1) + P(X=0)\\
+	& = & \theta^1(1-\theta)^{1-1} + \theta^0(1-\theta)^{1-0}\\
+	& = & \theta + (1 - \theta)\\
+	& = & 1
+\end{array}
+\]
+
+<h2 >Função de Distribuição</h2>
+
+<p>A função de distribuição é para esse caso é </p> 
+
+\[
+F_X(x) = \begin{cases}
+	0, ~~~~ \text{se } x < 0;\\
+	1-\theta, ~~ \text{se } 0\leq x < 1;\\
+	1, ~~~~ \text{se } x \geq 1
+\end{cases}
+\]
+
+<p>Graficamente  \(F_X(x)\) é </p>
+
+<p style="text-align: center;"><img src="Bernoulli.svg" alt="Bernoulli_Fx" width="320px"></p>
+
+
+
+<h2> Esperança</h2>
+<p> A esperança de uma variável aleatória \(X\) com distribuição Bernoulli é </p>  
+
+\[
+\mathbb{E}[X] = \sum_i_n
+\]
+
+<h2>Variância</h2>
+
+
+
+Exemplos de experimentos aleatórios cuja variável aleatória segue distribuição Bernoulli são
+
+<ul>
+
+
+	<li>o lançamento de uma moeda e o resultado ``cara'' é o evento de interesse;</li> 
+	
+	<li> o sexo de um filhote ao nascer e ``fêmea'' é o evento de interesse;</li> 
+	
+    <li> um anúncio para um cliente ser convertido em venda e o evento de interesse "convertido em venda"</li> 
+
+</ul>
+
+
+               
+
+
+
+
+               
+
+
+               
+           </main>
+
+
+           <div class="logo-image" style="text-align: right; vertical-align: middle;">
+            <a href="../Distrib_Probabilidades.html">
+            <img style="vertical-align: middle;" src="back.png" alt = "math" width="30px">
+        </a>
+            <a style="font-weight:bold; " href="../Distrib_Probabilidades.html"> &nbsp; Distribuições de Probabilidades</a>
+           </div>
+        <footer>
+            
+
+            <span>&COPY;</span> Rodrigo F. Abreu <script>document.write( new Date().getFullYear() );</script>
+        </footer>
+
+    </div>
+
+
+</body>
+</html>
